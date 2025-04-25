@@ -10,10 +10,10 @@ export const Navbar = () => {
 
   return (
     <header className="bg-background sticky top-0 z-50 shadow-sm border-b">
-      <div className="container mx-auto flex justify-between items-center p-4">
+      <div className="container mx-auto flex justify-between items-center p-4 relative">
         <Link to="/" className="text-xl font-bold text-foreground">Калининград Тревел</Link>
         
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 mr-12">
           <nav className="flex gap-6">
             <Link to="/" className="text-muted-foreground hover:text-primary font-medium">Главная</Link>
             <Link to="/destinations" className="text-muted-foreground hover:text-primary font-medium">Направления</Link>
