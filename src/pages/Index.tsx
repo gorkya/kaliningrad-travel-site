@@ -14,7 +14,7 @@ export default function Index() {
           <DestinationCard 
             title="Куршская коса" 
             description="Уникальный природный заповедник, внесенный в список ЮНЕСКО" 
-            imageUrl="https://troykaline.ru/wp-content/uploads/2018/06/kurshkoll.jpg" 
+            imageUrl="https://cdn.poehali.dev/files/104bbeba-4f34-4975-9ccc-97bcd6337c7c.jpg" 
           />
           <DestinationCard 
             title="Калининград" 
