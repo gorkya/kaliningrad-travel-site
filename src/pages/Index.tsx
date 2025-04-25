@@ -19,7 +19,7 @@ export default function Index() {
           <DestinationCard 
             title="Калининград" 
             description="Исторический центр с немецкой архитектурой и Кафедральным собором" 
-            imageUrl="https://images.unsplash.com/photo-1622131970364-de1461e3026e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+            imageUrl="https://cdn.poehali.dev/files/a13f55a9-9b3a-409a-ab09-35c2ae17019f.jpeg" 
           />
           <DestinationCard 
             title="Янтарный" 
