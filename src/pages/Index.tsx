@@ -23,8 +23,7 @@ export default function Index() {
               </Button>
               
               <Button 
-                variant="outline"
-                className="h-auto py-8 text-xl font-medium text-foreground border-2"
+                className="h-auto py-8 text-xl font-medium bg-secondary text-black border-2 border-gray-300 hover:bg-secondary/90"
               >
                 Советы путешественникам
               </Button>
