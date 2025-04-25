@@ -21,19 +21,22 @@ export const Navbar = () => {
             <Link to="/tips" className="text-muted-foreground hover:text-primary font-medium">Советы</Link>
           </nav>
           <div className="flex items-center gap-4">
-            <ThemeToggle />
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Связаться</Button>
           </div>
         </div>
         
         <div className="md:hidden flex items-center">
-          <ThemeToggle />
           <button 
             className="ml-2" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <Menu className="h-6 w-6 text-foreground" />
           </button>
+        </div>
+
+        {/* Переключатель темы в правом верхнем углу */}
+        <div className="absolute top-4 right-4">
+          <ThemeToggle />
         </div>
       </div>
       
