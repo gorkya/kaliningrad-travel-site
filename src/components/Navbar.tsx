@@ -11,7 +11,14 @@ export const Navbar = () => {
   return (
     <header className="bg-background sticky top-0 z-50 shadow-sm border-b">
       <div className="container mx-auto flex justify-between items-center p-4 relative">
-        <Link to="/" className="text-xl font-bold text-foreground">Калининград Тревел</Link>
+        <div className="flex items-center">
+          <Link to="/" className="text-xl font-bold text-foreground">Калининград Тревел</Link>
+          <img 
+            src="https://cdn.poehali.dev/files/a4ce7836-b24f-46ff-bd24-00aeb2e65975.svg" 
+            alt="Калининград Тревел Логотип" 
+            className="h-10 ml-2" 
+          />
+        </div>
         
         <div className="hidden md:flex items-center gap-8 mr-12">
           <nav className="flex gap-6">
