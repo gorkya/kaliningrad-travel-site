@@ -19,7 +19,7 @@ export const DestinationCard = ({
       <div className="h-48 overflow-hidden">
         <img
           src={imageUrl}
-          alt={title}
+          alt={title === "Янтарный" ? "Посёлок Янтарный" : title}
           className="w-full h-full object-cover"
         />
       </div>
