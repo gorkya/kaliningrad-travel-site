@@ -2,10 +2,12 @@
 import { HeroSection } from "@/components/HeroSection";
 import { DestinationCard } from "@/components/DestinationCard";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 
 export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       <HeroSection />
       
       <section className="py-16 px-4 max-w-7xl mx-auto">
@@ -19,7 +21,7 @@ export default function Index() {
           <DestinationCard 
             title="Калининград" 
             description="Исторический центр с немецкой архитектурой и Кафедральным собором" 
-            imageUrl="https://cdn.poehali.dev/files/9147276d-d4c1-4a92-a44b-271fe220a375.jpg" 
+            imageUrl="https://cdn.poehali.dev/files/a13f55a9-9b3a-409a-ab09-35c2ae17019f.jpeg" 
           />
           <DestinationCard 
             title="Янтарный" 
@@ -29,7 +31,7 @@ export default function Index() {
         </div>
       </section>
       
-      <section className="py-16 px-4 bg-slate-50">
+      <section className="py-16 px-4 bg-slate-50 dark:bg-slate-800">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">О Калининградской области</h2>
           <p className="text-lg mb-6">
