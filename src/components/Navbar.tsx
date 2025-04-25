@@ -21,7 +21,7 @@ export const Navbar = () => {
             <Link to="/tips" className="text-muted-foreground hover:text-primary font-medium">Советы</Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Связаться</Button>
+            <Button variant="default" className="hover:bg-primary/90 text-primary-foreground">Связаться</Button>
           </div>
         </div>
         
@@ -72,7 +72,8 @@ export const Navbar = () => {
               Советы
             </Link>
             <Button 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-2"
+              variant="default"
+              className="hover:bg-primary/90 text-primary-foreground w-full mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Связаться
