@@ -15,7 +15,7 @@ export const DestinationCard = ({
   imageUrl,
 }: DestinationCardProps) => {
   return (
-    <Card className="overflow-hidden border-none shadow-lg transition-transform duration-300 hover:scale-105">
+    <Card className="overflow-hidden border-none shadow-lg transition-transform duration-300 hover:scale-105 min-w-[280px] max-w-[320px]">
       <div className="h-24 overflow-hidden">
         <img
           src={imageUrl}

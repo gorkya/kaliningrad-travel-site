@@ -10,7 +10,7 @@ export default function Index() {
       
       <section className="py-16 px-4 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Популярные направления</h2>
-        <div className="flex flex-col space-y-6 max-w-md mx-auto">
+        <div className="flex flex-row space-x-6 overflow-x-auto pb-4">
           <DestinationCard 
             title="Куршская коса" 
             description="Уникальный природный заповедник, внесенный в список ЮНЕСКО" 
