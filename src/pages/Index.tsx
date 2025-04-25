@@ -1,57 +1,55 @@
 
-import { HeroSection } from "@/components/HeroSection";
-import { DestinationCard } from "@/components/DestinationCard";
-import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
+import { Footer } from "@/components/Footer";
 
 export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <HeroSection />
       
-      <section className="py-16 px-4 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Популярные направления</h2>
-        <div className="flex flex-col space-y-6 max-w-md mx-auto">
-          <DestinationCard 
-            title="Куршская коса" 
-            description="Уникальный природный заповедник, внесенный в список ЮНЕСКО" 
-            imageUrl="https://cdn.poehali.dev/files/104bbeba-4f34-4975-9ccc-97bcd6337c7c.jpg" 
-          />
-          <DestinationCard 
-            title="Калининград" 
-            description="Исторический центр с немецкой архитектурой и Кафедральным собором" 
-            imageUrl="https://cdn.poehali.dev/files/a13f55a9-9b3a-409a-ab09-35c2ae17019f.jpeg" 
-          />
-          <DestinationCard 
-            title="Янтарный" 
-            description="Поселок с крупнейшим в мире месторождением янтаря и живописными пляжами" 
-            imageUrl="https://images.unsplash.com/photo-1614518921456-2527e0c0061c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-          />
-        </div>
-      </section>
-      
-      <section className="py-16 px-4 bg-slate-50 dark:bg-slate-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">О Калининградской области</h2>
-          <p className="text-lg mb-6">
-            Калининградская область — самый западный регион России, 
-            расположенный на побережье Балтийского моря. 
-            Этот уникальный уголок страны славится богатой историей, 
-            невероятной природой и особой атмосферой, сочетающей в себе 
-            немецкое наследие и русскую культуру.
-          </p>
-          <p className="text-lg mb-6">
-            Здесь вы найдете старинные замки и форты, красивейшие пляжи 
-            Балтийского побережья, уникальные природные заповедники и, конечно, 
-            месторождения янтаря — солнечного камня, которым славится этот регион.
-          </p>
-          <p className="text-lg">
-            Калининградская область идеально подходит для путешествий в любое время года, 
-            предлагая разнообразные маршруты и возможности для отдыха на любой вкус.
-          </p>
-        </div>
-      </section>
+      <main className="flex-1">
+        <HeroSection />
+        
+        {/* Секция с кнопками */}
+        <section className="bg-background py-12">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Button 
+                className="h-auto py-8 text-xl font-medium bg-primary/90 hover:bg-primary/100"
+              >
+                Исследовать туры
+              </Button>
+              
+              <Button 
+                variant="outline"
+                className="h-auto py-8 text-xl font-medium text-foreground border-2"
+              >
+                Советы путешественникам
+              </Button>
+            </div>
+          </div>
+        </section>
+        
+        {/* Информационный раздел */}
+        <section className="bg-muted py-16">
+          <div className="container mx-auto">
+            <h2 className="text-4xl font-bold mb-8 text-foreground">
+              Откройте для себя удивительную Калининградскую область
+            </h2>
+            <p className="text-lg mb-6 text-foreground/90">
+              Путешествуйте по самому западному региону России, где встречаются разные культуры и исторические эпохи. Калининградская область — это уникальный край с богатым прошлым, красивой природой и разнообразными достопримечательностями.
+            </p>
+            <p className="text-lg mb-6 text-foreground/90">
+              От средневековых замков и фортов до живописных пляжей Балтийского моря, от янтарных шахт до национальных парков — здесь каждый найдет что-то по душе.
+            </p>
+            <div className="mt-8">
+              <Button>Узнать больше</Button>
+            </div>
+          </div>
+        </section>
+      </main>
       
       <Footer />
     </div>
