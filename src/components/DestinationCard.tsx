@@ -16,7 +16,7 @@ export const DestinationCard = ({
 }: DestinationCardProps) => {
   return (
     <Card className="overflow-hidden border-none shadow-lg transition-transform duration-300 hover:scale-105 min-w-[280px] max-w-[320px]">
-      <div className="h-24 overflow-hidden">
+      <div className="h-24 overflow-hidden border-2 border-[#a3b5c2]">
         <img
           src={imageUrl}
           alt={title === "Янтарный" ? "Посёлок Янтарный" : title}
