@@ -4,20 +4,27 @@ import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useTheme } from "@/components/theme-provider";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
+  
+  // Определяем, какой логотип использовать в зависимости от темы
+  const logoSrc = "https://cdn.poehali.dev/files/a4ce7836-b24f-46ff-bd24-00aeb2e65975.svg";
 
   return (
     <header className="bg-background sticky top-0 z-50 shadow-sm border-b">
       <div className="container mx-auto flex justify-between items-center p-4 relative">
         <div className="flex items-center">
           <Link to="/" className="text-xl font-bold text-foreground">Калининград Тревел</Link>
-          <img 
-            src="https://cdn.poehali.dev/files/a4ce7836-b24f-46ff-bd24-00aeb2e65975.svg" 
-            alt="Калининград Тревел Логотип" 
-            className="h-10 ml-2" 
-          />
+          <div className={`h-10 ml-2 ${theme === 'dark' ? 'invert' : ''}`}>
+            <img 
+              src={logoSrc} 
+              alt="Калининград Тревел Логотип" 
+              className="h-full" 
+            />
+          </div>
         </div>
         
         <div className="hidden md:flex items-center gap-8 mr-12">
