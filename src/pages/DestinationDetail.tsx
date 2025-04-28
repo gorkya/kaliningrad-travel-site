@@ -64,7 +64,7 @@ const destinationsData: Record<string, DestinationData> = {
         alt: "Музей Мирового океана"
       },
       {
-        src: "https://images.unsplash.com/photo-1570971029735-b10b1f91996c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        src: "https://cdn.poehali.dev/files/6dfb591a-23cb-4c3f-8b03-f25601e5a472.jpg",
         alt: "Остров Канта"
       },
       {
