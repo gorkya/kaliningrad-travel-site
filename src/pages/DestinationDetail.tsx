@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useParams, useNavigate } from "react-router-dom";
+import { ImageGallery } from "@/components/ImageGallery";
 
 interface DestinationData {
   id: string;
@@ -11,6 +12,10 @@ interface DestinationData {
   fullDescription: string[];
   imageSrc: string;
   facts: string[];
+  gallery?: {
+    src: string;
+    alt: string;
+  }[];
 }
 
 const destinationsData: Record<string, DestinationData> = {
@@ -60,6 +65,44 @@ const destinationsData: Record<string, DestinationData> = {
       "Пляж поселка Янтарный отмечен наградой 'Голубой флаг'",
       "Янтарный комбинат ведет добычу с 1947 года",
       "В поселке можно посетить смотровую площадку на карьере добычи янтаря"
+    ],
+    gallery: [
+      {
+        src: "https://cdn.poehali.dev/files/14fa522e-6fcd-46b0-870c-9a3a5591c392.jpg",
+        alt: "Деревянный мост через водоем в Янтарном"
+      },
+      {
+        src: "https://cdn.poehali.dev/files/6e1e6694-d359-485e-9bdb-ab2e10816ab2.jpeg",
+        alt: "Историческая церковь в Янтарном"
+      },
+      {
+        src: "https://cdn.poehali.dev/files/834a90e6-8eb9-4378-859b-060a1f7f15d9.png",
+        alt: "Пляж в Янтарном с зонтиками и шезлонгами"
+      },
+      {
+        src: "https://cdn.poehali.dev/files/e6fc83af-c1a7-4caa-be54-1684e844efdb.jpeg",
+        alt: "Историческое здание церкви"
+      },
+      {
+        src: "https://cdn.poehali.dev/files/2d50ec73-0865-4d83-96ab-b9831dcb5796.jpeg",
+        alt: "Вид на Янтарный с высоты птичьего полета"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1629129664879-08cdaf193dfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Закат на пляже в Янтарном"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1625730025281-3b5512edba11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Кусочки янтаря на песке"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1512591290618-904e04936827?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Балтийское море возле Янтарного"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1596402184320-21c45e250e91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Изделия из янтаря"
+      }
     ]
   }
 };
@@ -101,7 +144,7 @@ export default function DestinationDetail() {
             ← Назад к направлениям
           </Button>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div>
               <h1 className="text-4xl font-bold mb-4">{destination.title}</h1>
               
@@ -131,6 +174,13 @@ export default function DestinationDetail() {
               />
             </div>
           </div>
+          
+          {destination.gallery && (
+            <div className="mb-12">
+              <h2 className="text-3xl font-semibold mb-6">Галерея изображений</h2>
+              <ImageGallery images={destination.gallery} />
+            </div>
+          )}
         </div>
       </main>
       
