@@ -52,15 +52,15 @@ const destinationsData: Record<string, DestinationData> = {
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1631343835326-086babd61583?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        src: "https://cdn.poehali.dev/files/bb702595-1d1a-4c61-800b-7f19ea371f04.jpg",
         alt: "Кафедральный собор Калининграда"
       },
       {
-        src: "https://images.unsplash.com/photo-1564501911891-74e5b69d5d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        src: "https://cdn.poehali.dev/files/6436dd4f-30db-4497-ac87-9df9234e6acc.jpg",
         alt: "Рыбная деревня в Калининграде"
       },
       {
-        src: "https://images.unsplash.com/photo-1559768216-d7b5e318fec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        src: "https://cdn.poehali.dev/files/b29b0162-e4d8-4766-887b-452c713ad110.jpeg",
         alt: "Музей Мирового океана"
       },
       {
