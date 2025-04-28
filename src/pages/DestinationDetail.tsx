@@ -49,6 +49,44 @@ const destinationsData: Record<string, DestinationData> = {
       "До 1946 года город назывался Кёнигсберг",
       "Здесь жил и работал философ Иммануил Кант",
       "В городе находится единственный в России Музей янтаря"
+    ],
+    gallery: [
+      {
+        src: "https://images.unsplash.com/photo-1631343835326-086babd61583?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Кафедральный собор Калининграда"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1564501911891-74e5b69d5d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Рыбная деревня в Калининграде"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1559768216-d7b5e318fec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Музей Мирового океана"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1570971029735-b10b1f91996c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Остров Канта"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1622896783896-be180c879788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Королевские ворота"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1602086782150-eb5ecf395925?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Набережная Преголи"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1601891251161-d95e4929b63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Закат над Верхним озером"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1609776790582-b1a3e9f3ea25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Форт №5"
+      },
+      {
+        src: "https://images.unsplash.com/photo-1549891055-d466e260d808?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        alt: "Променад на острове Канта"
+      }
     ]
   },
   "yantarny": {
