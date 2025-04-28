@@ -25,8 +25,7 @@ export const HeroSection = () => {
             </Button>
             <Button 
               onClick={() => navigate("/tips")}
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-[#1A1F2C] px-8 py-6 text-lg"
+              className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white px-8 py-6 text-lg"
             >
               Советы путешественникам
             </Button>
