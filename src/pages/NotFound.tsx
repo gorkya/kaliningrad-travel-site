@@ -1,27 +1,40 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
-const NotFound = () => {
-  const location = useLocation();
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
-
+export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>404 - Страница не найдена | Калининград Тревел</title>
+        <meta name="description" content="Запрашиваемая страница не найдена. Вернитесь на главную страницу Калининград Тревел." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
+      
+      <Navbar />
+      
+      <main className="flex-1 flex items-center justify-center">
+        <div className="text-center px-4">
+          <h1 className="text-6xl font-bold mb-2">404</h1>
+          <p className="text-2xl font-semibold mb-6">Страница не найдена</p>
+          <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+            Извините, запрашиваемая вами страница не существует или была перемещена.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button asChild>
+              <Link to="/">Вернуться на главную</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link to="/destinations">Посмотреть направления</Link>
+            </Button>
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
-};
-
-export default NotFound;
+}

@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useParams, useNavigate } from "react-router-dom";
 import { ImageGallery } from "@/components/ImageGallery";
+import { Helmet } from "react-helmet-async";
 
 interface DestinationData {
   id: string;
@@ -154,6 +155,11 @@ export default function DestinationDetail() {
   if (!destination) {
     return (
       <div className="min-h-screen flex flex-col">
+        <Helmet>
+          <title>Направление не найдено - Калининград Тревел</title>
+          <meta name="description" content="Запрашиваемое направление не найдено в нашей базе данных." />
+          <meta name="robots" content="noindex, follow" />
+        </Helmet>
         <Navbar />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
@@ -170,6 +176,18 @@ export default function DestinationDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>{`${destination.title} - Достопримечательности Калининградской области`}</title>
+        <meta name="description" content={destination.description} />
+        <meta name="keywords" content={`${destination.title}, Калининградская область, туризм, путешествия, достопримечательности`} />
+        <meta property="og:title" content={`${destination.title} - Достопримечательности Калининградской области`} />
+        <meta property="og:description" content={destination.description} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://kaliningrad-travel.ru/destinations/${destination.id}`} />
+        <meta property="og:image" content={destination.imageSrc} />
+        <link rel="canonical" href={`https://kaliningrad-travel.ru/destinations/${destination.id}`} />
+      </Helmet>
+      
       <Navbar />
       
       <main className="flex-1 py-12">
@@ -178,47 +196,52 @@ export default function DestinationDetail() {
             variant="outline" 
             className="mb-6"
             onClick={() => navigate('/destinations')}
+            aria-label="Вернуться к списку направлений"
           >
             ← Назад к направлениям
           </Button>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div>
-              <h1 className="text-4xl font-bold mb-4">{destination.title}</h1>
-              
-              <div className="mb-6">
-                {destination.fullDescription.map((para, idx) => (
-                  <p key={idx} className="text-lg mb-3">{para}</p>
-                ))}
-              </div>
-              
-              <div className="bg-primary/10 rounded-lg p-6 mb-6">
-                <h2 className="text-2xl font-semibold mb-4">Интересные факты</h2>
-                <ul className="list-disc pl-5 space-y-2">
-                  {destination.facts.map((fact, idx) => (
-                    <li key={idx}>{fact}</li>
+          <article itemScope itemType="http://schema.org/TouristAttraction">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              <div>
+                <h1 className="text-4xl font-bold mb-4" itemProp="name">{destination.title}</h1>
+                
+                <div className="mb-6" itemProp="description">
+                  {destination.fullDescription.map((para, idx) => (
+                    <p key={idx} className="text-lg mb-3">{para}</p>
                   ))}
-                </ul>
+                </div>
+                
+                <div className="bg-primary/10 rounded-lg p-6 mb-6">
+                  <h2 className="text-2xl font-semibold mb-4">Интересные факты</h2>
+                  <ul className="list-disc pl-5 space-y-2">
+                    {destination.facts.map((fact, idx) => (
+                      <li key={idx}>{fact}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <Button className="w-full sm:w-auto">Спланировать поездку</Button>
               </div>
               
-              <Button className="w-full sm:w-auto">Спланировать поездку</Button>
+              <div className="rounded-lg overflow-hidden">
+                <img 
+                  src={destination.imageSrc} 
+                  alt={`${destination.title} - основное изображение`} 
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                  itemProp="image"
+                />
+              </div>
             </div>
             
-            <div className="rounded-lg overflow-hidden">
-              <img 
-                src={destination.imageSrc} 
-                alt={destination.title} 
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-          
-          {destination.gallery && (
-            <div className="mb-12">
-              <h2 className="text-3xl font-semibold mb-6">Галерея изображений</h2>
-              <ImageGallery images={destination.gallery} />
-            </div>
-          )}
+            {destination.gallery && (
+              <div className="mb-12">
+                <h2 className="text-3xl font-semibold mb-6">Галерея изображений</h2>
+                <ImageGallery images={destination.gallery} />
+              </div>
+            )}
+          </article>
         </div>
       </main>
       

@@ -2,77 +2,98 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { Helmet } from "react-helmet-async";
 
 export default function Sitemap() {
-  const sitemapData = [
-    {
-      title: "Главные страницы",
-      links: [
-        { name: "Главная", path: "/" },
-        { name: "Направления", path: "/destinations" },
-        { name: "Туры", path: "/tours" },
-        { name: "Советы", path: "/tips" },
-      ]
-    },
-    {
-      title: "Направления",
-      links: [
-        { name: "Все направления", path: "/destinations" },
-        { name: "Куршская коса", path: "/destinations/curonian-spit" },
-        { name: "Калининград", path: "/destinations/kaliningrad" },
-        { name: "Янтарный", path: "/destinations/yantarny" },
-      ]
-    },
-    {
-      title: "Сервис",
-      links: [
-        { name: "Карта сайта", path: "/sitemap" },
-        { name: "Контакты", path: "/contact" },
-      ]
-    }
-  ];
-
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Карта сайта - Калининград Тревел</title>
+        <meta name="description" content="Карта сайта Калининград Тревел для удобной навигации по всем разделам и страницам нашего портала о путешествиях по Калининградской области." />
+        <meta name="keywords" content="карта сайта, Калининград Тревел, навигация, туризм, Калининградская область" />
+        <meta property="og:title" content="Карта сайта - Калининград Тревел" />
+        <meta property="og:description" content="Карта сайта Калининград Тревел для удобной навигации по всем разделам и страницам нашего портала о путешествиях по Калининградской области." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kaliningrad-travel.ru/sitemap" />
+        <link rel="canonical" href="https://kaliningrad-travel.ru/sitemap" />
+      </Helmet>
+      
       <Navbar />
       
       <main className="flex-1 py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-8">Карта сайта</h1>
+          <h1 className="text-4xl font-bold mb-8 text-center">Карта сайта</h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sitemapData.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="bg-card rounded-lg p-6 shadow-sm">
-                <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
-                <Separator className="mb-4" />
-                <ul className="space-y-3">
-                  {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <Link 
-                        to={link.path} 
-                        className="flex items-center text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <ChevronRight className="h-4 w-4 mr-2" />
-                        <span>{link.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <h2 className="text-2xl font-semibold mb-4 border-b pb-2">Главные разделы</h2>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/" className="text-primary hover:underline">Главная страница</Link>
+                </li>
+                <li>
+                  <Link to="/destinations" className="text-primary hover:underline">Направления</Link>
+                </li>
+                <li>
+                  <Link to="/tours" className="text-primary hover:underline">Туры</Link>
+                </li>
+                <li>
+                  <Link to="/tips" className="text-primary hover:underline">Советы путешественникам</Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <h2 className="text-2xl font-semibold mb-4 border-b pb-2">Направления</h2>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/destinations/kaliningrad" className="text-primary hover:underline">Калининград</Link>
+                </li>
+                <li>
+                  <Link to="/destinations/curonian-spit" className="text-primary hover:underline">Куршская коса</Link>
+                </li>
+                <li>
+                  <Link to="/destinations/yantarny" className="text-primary hover:underline">Янтарный</Link>
+                </li>
+                <li>
+                  <Link to="/destinations/svetlogorsk" className="text-primary hover:underline">Светлогорск</Link>
+                </li>
+                <li>
+                  <Link to="/destinations/zelenogradsk" className="text-primary hover:underline">Зеленоградск</Link>
+                </li>
+                <li>
+                  <Link to="/destinations/pioneer" className="text-primary hover:underline">Пионерский</Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <h2 className="text-2xl font-semibold mb-4 border-b pb-2">Служебные страницы</h2>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/sitemap" className="text-primary hover:underline">Карта сайта</Link>
+                </li>
+                <li>
+                  <a href="#" className="text-primary hover:underline">Политика конфиденциальности</a>
+                </li>
+                <li>
+                  <a href="#" className="text-primary hover:underline">Условия использования</a>
+                </li>
+                <li>
+                  <a href="#" className="text-primary hover:underline">О нас</a>
+                </li>
+                <li>
+                  <a href="#" className="text-primary hover:underline">Контакты</a>
+                </li>
+              </ul>
+            </div>
           </div>
           
-          <div className="mt-12 p-6 bg-muted rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">Навигация по сайту</h2>
-            <p className="mb-4">
-              Наш сайт предлагает множество информации о путешествиях по Калининградской области.
-              Используйте карту сайта выше для быстрого перехода к нужным разделам.
-            </p>
-            <p>
-              Если вы не нашли нужную информацию, пожалуйста, воспользуйтесь верхним меню 
-              или <Link to="/contact" className="text-primary hover:underline">свяжитесь с нами</Link>.
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <p className="text-muted-foreground">
+              Эта карта сайта предназначена для удобной навигации по всем разделам нашего портала. 
+              Если вы не можете найти нужную информацию, пожалуйста, воспользуйтесь одной из ссылок выше 
+              или свяжитесь с нами через форму обратной связи.
             </p>
           </div>
         </div>

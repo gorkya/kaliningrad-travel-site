@@ -1,50 +1,60 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 
 interface ImageGalleryProps {
   images: {
     src: string;
     alt: string;
   }[];
-  className?: string;
 }
 
-export const ImageGallery: React.FC<ImageGalleryProps> = ({ images, className }) => {
-  const [openImage, setOpenImage] = useState<string | null>(null);
+export function ImageGallery({ images }: ImageGalleryProps) {
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<{src: string, alt: string} | null>(null);
+  
+  const openImageModal = (image: {src: string, alt: string}) => {
+    setSelectedImage(image);
+    setOpen(true);
+  };
 
   return (
-    <div className={cn("w-full", className)}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="relative overflow-hidden rounded-lg aspect-square cursor-pointer hover-scale"
-            onClick={() => setOpenImage(image.src)}
+            className="aspect-square rounded-md overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+            onClick={() => openImageModal(image)}
           >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+            <img 
+              src={image.src} 
+              alt={image.alt} 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+              width="300"
+              height="300"
             />
           </div>
         ))}
       </div>
-
-      <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
-        <DialogContent className="max-w-4xl p-0 bg-transparent border-none">
-          {openImage && (
-            <div className="relative w-full rounded-lg overflow-hidden">
-              <img
-                src={openImage}
-                alt="Увеличенное изображение"
-                className="w-full h-auto object-contain"
+      
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-4xl bg-background p-0 overflow-hidden">
+          {selectedImage && (
+            <div className="relative">
+              <img 
+                src={selectedImage.src} 
+                alt={selectedImage.alt} 
+                className="w-full h-auto" 
               />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/70 text-white">
+                <p>{selectedImage.alt}</p>
+              </div>
             </div>
           )}
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
-};
+}
