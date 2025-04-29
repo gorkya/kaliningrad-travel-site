@@ -14,12 +14,28 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  // Обновлено для корректной работы в продакшн
+  base: '/',
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    // Улучшаем совместимость для старых браузеров
+    target: 'es2015',
+    // Добавляем fallback для роутинга в SPA
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+  },
   server: {
     host: '0.0.0.0',
     port: 5173,
     allowedHosts: true,
     hmr: {
-      overlay: false // Disables the error overlay if you only want console errors
+      overlay: false
     }
   },
 });
