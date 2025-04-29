@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useParams, useNavigate } from "react-router-dom";
 import { ImageGallery } from "@/components/ImageGallery";
-import { Helmet } from "react-helmet-async";
 
 interface DestinationData {
   id: string;
@@ -155,11 +154,6 @@ export default function DestinationDetail() {
   if (!destination) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Helmet>
-          <title>Направление не найдено - Калининград Тревел</title>
-          <meta name="description" content="Запрашиваемое направление не найдено в нашей базе данных." />
-          <meta name="robots" content="noindex, follow" />
-        </Helmet>
         <Navbar />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
@@ -176,18 +170,6 @@ export default function DestinationDetail() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{`${destination.title} - Достопримечательности Калининградской области`}</title>
-        <meta name="description" content={destination.description} />
-        <meta name="keywords" content={`${destination.title}, Калининградская область, туризм, путешествия, достопримечательности`} />
-        <meta property="og:title" content={`${destination.title} - Достопримечательности Калининградской области`} />
-        <meta property="og:description" content={destination.description} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://kaliningrad-travel.ru/destinations/${destination.id}`} />
-        <meta property="og:image" content={destination.imageSrc} />
-        <link rel="canonical" href={`https://kaliningrad-travel.ru/destinations/${destination.id}`} />
-      </Helmet>
-      
       <Navbar />
       
       <main className="flex-1 py-12">

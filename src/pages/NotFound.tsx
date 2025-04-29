@@ -3,17 +3,10 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>404 - Страница не найдена | Калининград Тревел</title>
-        <meta name="description" content="Запрашиваемая страница не найдена. Вернитесь на главную страницу Калининград Тревел." />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
-      
       <Navbar />
       
       <main className="flex-1 flex items-center justify-center">

@@ -3,23 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Footer } from "@/components/Footer";
-import { Helmet } from "react-helmet-async";
 
 export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>Калининград Тревел - Путешествия по Калининградской области</title>
-        <meta name="description" content="Откройте для себя удивительную Калининградскую область с Калининград Тревел. Экскурсии, достопримечательности и советы путешественникам." />
-        <meta name="keywords" content="Калининград, туризм, путешествия, Куршская коса, Балтийское море, экскурсии" />
-        <meta property="og:title" content="Калининград Тревел - Путешествия по Калининградской области" />
-        <meta property="og:description" content="Откройте для себя удивительную Калининградскую область с Калининград Тревел. Экскурсии, достопримечательности и советы путешественникам." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://kaliningrad-travel.ru/" />
-        <meta property="og:image" content="/og-image.png" />
-        <link rel="canonical" href="https://kaliningrad-travel.ru/" />
-      </Helmet>
-      
       <Navbar />
       
       <main className="flex-1">

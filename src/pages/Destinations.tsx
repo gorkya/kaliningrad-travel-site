@@ -2,7 +2,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { DestinationCard } from "@/components/DestinationCard";
-import { Helmet } from "react-helmet-async";
 
 const destinations = [
   {
@@ -46,18 +45,6 @@ const destinations = [
 export default function Destinations() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>Направления и достопримечательности Калининградской области</title>
-        <meta name="description" content="Исследуйте уникальные направления для путешествий по Калининградской области: Куршская коса, Калининград, Янтарный, Светлогорск и другие интересные места." />
-        <meta name="keywords" content="Калининградская область, достопримечательности, Куршская коса, Калининград, Янтарный, Светлогорск, туризм" />
-        <meta property="og:title" content="Направления и достопримечательности Калининградской области" />
-        <meta property="og:description" content="Исследуйте уникальные направления для путешествий по Калининградской области: Куршская коса, Калининград, Янтарный, Светлогорск и другие интересные места." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://kaliningrad-travel.ru/destinations" />
-        <meta property="og:image" content="/og-image.png" />
-        <link rel="canonical" href="https://kaliningrad-travel.ru/destinations" />
-      </Helmet>
-      
       <Navbar />
       
       <main className="flex-1 py-12">

@@ -2,22 +2,10 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 
 export default function Sitemap() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>Карта сайта - Калининград Тревел</title>
-        <meta name="description" content="Карта сайта Калининград Тревел для удобной навигации по всем разделам и страницам нашего портала о путешествиях по Калининградской области." />
-        <meta name="keywords" content="карта сайта, Калининград Тревел, навигация, туризм, Калининградская область" />
-        <meta property="og:title" content="Карта сайта - Калининград Тревел" />
-        <meta property="og:description" content="Карта сайта Калининград Тревел для удобной навигации по всем разделам и страницам нашего портала о путешествиях по Калининградской области." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://kaliningrad-travel.ru/sitemap" />
-        <link rel="canonical" href="https://kaliningrad-travel.ru/sitemap" />
-      </Helmet>
-      
       <Navbar />
       
       <main className="flex-1 py-12">
