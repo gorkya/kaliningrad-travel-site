@@ -1,97 +1,54 @@
 
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { Menu } from "lucide-react";
 import { useState } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { useTheme } from "@/components/theme-provider";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme } = useTheme();
-  
-  // Определяем, какой логотип использовать в зависимости от темы
-  const logoSrc = "https://cdn.poehali.dev/files/a4ce7836-b24f-46ff-bd24-00aeb2e65975.svg";
 
   return (
-    <header className="bg-background sticky top-0 z-50 shadow-sm border-b">
-      <div className="container mx-auto flex justify-between items-center p-4 relative">
+    <header className="bg-background border-b border-border sticky top-0 z-50">
+      <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <div className="flex items-center">
-          <Link to="/" className="text-xl font-bold text-foreground">Калининград Тревел</Link>
-          <div className={`h-10 ml-2 ${theme === 'dark' ? 'invert' : ''}`}>
+          <a href="/" aria-label="Главная страница" className="flex items-center">
             <img 
-              src={logoSrc} 
-              alt="Калининград Тревел Логотип" 
-              className="h-full" 
+              src="/logo-b.svg" 
+              alt="Калининград Тревел" 
+              width="40" 
+              height="40"
+              className="mr-2"
             />
-          </div>
-        </div>
-        
-        <div className="hidden md:flex items-center gap-8 mr-12">
-          <nav className="flex gap-6">
-            <Link to="/" className="text-muted-foreground hover:text-primary font-medium">Главная</Link>
-            <Link to="/destinations" className="text-muted-foreground hover:text-primary font-medium">Направления</Link>
-            <Link to="/tours" className="text-muted-foreground hover:text-primary font-medium">Туры</Link>
-            <Link to="/tips" className="text-muted-foreground hover:text-primary font-medium">Советы</Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="default" className="hover:bg-primary/90 text-primary-foreground">Связаться</Button>
-          </div>
-        </div>
-        
-        <div className="md:hidden flex items-center">
-          <button 
-            className="ml-2" 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Menu className="h-6 w-6 text-foreground" />
-          </button>
+            <span className="font-bold text-xl hidden sm:inline-block">Калининград Тревел</span>
+          </a>
         </div>
 
-        {/* Переключатель темы в правом верхнем углу */}
-        <div className="absolute top-4 right-4">
-          <ThemeToggle />
-        </div>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-6">
+          <a href="/" className="hover:text-primary transition-colors">Главная</a>
+          <a href="/destinations" className="hover:text-primary transition-colors">Достопримечательности</a>
+          <a href="/sitemap" className="hover:text-primary transition-colors">Карта сайта</a>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X /> : <Menu />}
+        </Button>
       </div>
-      
+
+      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background py-4 px-4 border-t">
-          <nav className="flex flex-col gap-4">
-            <Link 
-              to="/" 
-              className="text-muted-foreground hover:text-primary font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Главная
-            </Link>
-            <Link 
-              to="/destinations" 
-              className="text-muted-foreground hover:text-primary font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Направления
-            </Link>
-            <Link 
-              to="/tours" 
-              className="text-muted-foreground hover:text-primary font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Туры
-            </Link>
-            <Link 
-              to="/tips" 
-              className="text-muted-foreground hover:text-primary font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Советы
-            </Link>
-            <Button 
-              variant="default"
-              className="hover:bg-primary/90 text-primary-foreground w-full mt-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Связаться
-            </Button>
+        <div className="md:hidden bg-background border-b border-border">
+          <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            <a href="/" className="hover:text-primary transition-colors block py-2">Главная</a>
+            <a href="/destinations" className="hover:text-primary transition-colors block py-2">Достопримечательности</a>
+            <a href="/sitemap" className="hover:text-primary transition-colors block py-2">Карта сайта</a>
           </nav>
         </div>
       )}

@@ -1,5 +1,7 @@
+
 User-agent: *
-Allow: /
 Disallow: /admin/
+Disallow: /private/
+Allow: /
 
 Sitemap: https://kaliningrad-travel.ru/sitemap.xml
