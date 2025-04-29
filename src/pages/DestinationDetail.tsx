@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useParams, useNavigate } from "react-router-dom";
 import { ImageGallery } from "@/components/ImageGallery";
+import { AutoplayCarousel } from "@/components/AutoplayCarousel";
 
 interface DestinationData {
   id: string;
@@ -220,7 +221,16 @@ export default function DestinationDetail() {
             {destination.gallery && (
               <div className="mb-12">
                 <h2 className="text-3xl font-semibold mb-6">Галерея изображений</h2>
-                <ImageGallery images={destination.gallery} />
+                
+                {id === 'kaliningrad' ? (
+                  <AutoplayCarousel 
+                    images={destination.gallery} 
+                    autoplayInterval={5000}
+                    className="max-w-5xl mx-auto"
+                  />
+                ) : (
+                  <ImageGallery images={destination.gallery} />
+                )}
               </div>
             )}
           </article>
