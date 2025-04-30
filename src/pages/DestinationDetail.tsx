@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { DestinationHeader } from "@/components/DestinationHeader";
 import { DestinationGallery } from "@/components/DestinationGallery";
 import { NotFoundDestination } from "@/components/NotFoundDestination";
-import { SEOHelmet } from "@/components/SEOHelmet";
+import { SimpleSEO } from "@/components/SimpleSEO";
 import { destinationsData } from "@/types/destination";
 
 export default function DestinationDetail() {
@@ -16,39 +16,14 @@ export default function DestinationDetail() {
     return <NotFoundDestination />;
   }
 
-  // Создаем структурированные данные для SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "TouristAttraction",
-    "name": destination.title,
-    "description": destination.description,
-    "image": destination.coverImage || destination.gallery?.[0]?.src || "",
-    "url": `https://kaliningrad-travel.ru/destinations/${id}`,
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "Калининградская область",
-      "addressCountry": "Россия"
-    }
-  };
-
-  // Добавляем факты как особенности, если они есть
-  if (destination.facts && destination.facts.length > 0) {
-    structuredData.additionalProperty = destination.facts.map(fact => ({
-      "@type": "PropertyValue",
-      "name": fact.title,
-      "value": fact.description
-    }));
-  }
-
   return (
     <div className="min-h-screen flex flex-col">
-      <SEOHelmet 
+      <SimpleSEO 
         title={destination.title}
         description={destination.description.substring(0, 160)}
         keywords={`${destination.title}, Калининградская область, достопримечательности, путешествия`}
         ogImage={destination.coverImage || destination.gallery?.[0]?.src || "/og-image.png"}
         ogType="article"
-        structuredData={structuredData}
       />
       
       <Navbar />

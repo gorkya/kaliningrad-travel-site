@@ -3,36 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Footer } from "@/components/Footer";
-import { SEOHelmet } from "@/components/SEOHelmet";
+import { SimpleSEO } from "@/components/SimpleSEO";
 
 export default function Index() {
-  // Структурированные данные для главной страницы
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Калининград Тревел",
-    "description": "Путешествия по самому западному региону России - Калининградской области",
-    "url": "https://kaliningrad-travel.ru",
-    "logo": "https://kaliningrad-travel.ru/logo-b.svg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "Россия",
-      "addressRegion": "Калининградская область"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://kaliningrad-travel.ru/destinations?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
-      <SEOHelmet 
+      <SimpleSEO 
         title="Путешествия по Калининградской области"
         description="Откройте для себя удивительную Калининградскую область с Калининград Тревел. Экскурсии, достопримечательности и советы путешественникам."
         keywords="Калининград, туризм, путешествия, Куршская коса, Балтийское море, экскурсии"
-        structuredData={structuredData}
+        ogImage="/og-image.png"
       />
       
       <Navbar />
